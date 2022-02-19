@@ -10,6 +10,8 @@ body {
     padding-top: 50px;
     align-content: flex-start;
     margin-left: 10px;
+    overflow: hidden !important;
+    box-sizing: border-box;
 }
 
 .multicards .card {
@@ -29,6 +31,7 @@ body {
     margin-left: -30px !important;
     margin-right: -30px !important;
     overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 5px;
 }
 
@@ -37,7 +40,8 @@ body {
 }
 
 .filter-card::-webkit-scrollbar {
-    display: none;
+    width: 5px;
+    background-color: rgb(192, 192, 192, 0.9);
 }
 .filter-card {
     -ms-overflow-style: none; /* IE and Edge */
@@ -89,10 +93,11 @@ body {
 @media (min-width: 1024px) and (max-width: 1024px) {
     .filter-card {
         width: 18rem !important;
-        top: 100px;
+        top: 80px;
+        margin-left: 25px !important;
     }
     .multicards {
-        margin-left: 150px;
+        margin-left: 100px;
     }
 }
 
@@ -101,25 +106,36 @@ body {
         display: none;
     }
     .main-row {
-        width: fit-content;
+        width: 100vw;
     }
     .multicards {
-        flex: 1 2 33px;
+        flex: 1 1 auto;
+        overflow: hidden !important;
     }
     .multicards .card {
         flex: 1 1 50%;
         padding-left: 50px;
         padding-right: 50px;
+        margin-left: 100px;
+        height: fit-content !important;
+        max-width: fit-content !important;
     }
     .bottombutton {
         visibility: visible;
+        margin-left: -22px;
     }
 }
 
 @media (max-width: 425px) {
+    .multicards {
+        /* padding-right: 10px; */
+    }
+    .filter-cont button {
+        padding-bottom: 0px !important;
+    }
     .multicards .card {
         height: fit-content !important;
-        margin-bottom: 100px;
+        margin-left: 0px;
     }
     .multicards a {
         text-decoration: none;
@@ -131,8 +147,13 @@ body {
     .fullpartbtn {
         display: block !important;
         text-align: center;
+        margin-top: 20px;
         margin-left: 0 !important;
         margin-right: 0 !important;
+    }
+    .bottombutton {
+        visibility: visible;
+        margin-left: 0px;
     }
 }
 
