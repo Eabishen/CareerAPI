@@ -67,6 +67,7 @@ body {
 .bottombutton {
     position: sticky;
     bottom: 5px;
+    left:0px;
     visibility: hidden;
 }
 
