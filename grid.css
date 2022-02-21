@@ -147,6 +147,8 @@ body {
 @media (max-width: 768px) {
     body{
         position: relative;
+        overflow: hidden !important;
+
     }
     .main-row {
         overscroll-behavior: contain;
