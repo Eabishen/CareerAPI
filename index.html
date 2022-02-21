@@ -24,8 +24,8 @@
             href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
             rel="stylesheet"
         />
-        <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
-        <title>Career API</title>
+
+        <title>Document</title>
         <style>
             .toggle.ios,
             .toggle-on.ios,
@@ -38,10 +38,13 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="container filtermain">
             <div class="row main-row p-0">
-                <div class="col-md-12 col-lg-3 mt-5 filter-cont">
-                    <div class="card filter-card">
+                <div
+                    class="col-md-12 col-lg-3 mt-5 filter-cont"
+                    id="filtercont"
+                >
+                    <div class="card filter-card" id="screenfilter">
                         <div class="card-body">
                             <!-- input -->
                             <div class="card-title text-center pb-1">
@@ -207,6 +210,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Cards -->
                 <div class="col-md-12 col-lg-9 multicards">
                     <div class="card" style="width: 24rem; height: 20rem">
                         <div class="card-body">
@@ -509,15 +514,176 @@
                         </div>
                     </div>
                 </div>
-                
+            </div>
+
+            <!-- popup -->
+            <div class="col-md-12 col-lg-12 popfilter hidden" id="popfilterid">
+                <div class="card">
+                    <div class="card-body popfilterbody">
+                        <!-- input -->
+                        <div class="card-title text-center pb-1">
+                            <i
+                                class="bx bxs-filter-alt"
+                                style="font-size: 20px"
+                            ></i
+                            ><span style="font-size: 22px">Filter</span>
+                        </div>
+                        <label for="category">Category</label>
+                        <input
+                            type="text"
+                            class="form-control mb-2"
+                            id="category"
+                            placeholder="Choose category"
+                        />
+                        <label for="Location">Location</label>
+                        <input
+                            type="text"
+                            class="form-control mb-4"
+                            id="Location"
+                            placeholder="Choose location"
+                        />
+
+                        <!-- Checkbox -->
+                        <div
+                            class="form-check pt-2 d-flex justify-content-between"
+                            style="margin-left: -20px !important"
+                        >
+                            <label class="form-check-label" for="full"
+                                >Full time</label
+                            >
+                            <input
+                                type="checkbox"
+                                data-toggle="toggle"
+                                data-style="ios"
+                                data-size="sm"
+                            />
+                        </div>
+
+                        <div
+                            class="form-check pt-2 d-flex justify-content-between"
+                            style="margin-left: -20px !important"
+                        >
+                            <label class="form-check-label" for="part"
+                                >Fresher Job</label
+                            >
+                            <input
+                                type="checkbox"
+                                data-toggle="toggle"
+                                data-style="ios"
+                                data-size="sm"
+                            />
+                        </div>
+
+                        <div
+                            class="form-check pt-2 d-flex justify-content-between"
+                            style="margin-left: -20px !important"
+                        >
+                            <label class="form-check-label mt-1" for="intership"
+                                >Also include intership</label
+                            >
+                            <input
+                                type="checkbox"
+                                data-toggle="toggle"
+                                data-style="ios"
+                                data-size="sm"
+                            />
+                        </div>
+
+                        <label
+                            class="pt-4"
+                            style="font-size: 14px; font-family: sans-serif"
+                            >Filter by Monthly Salary(in ₹)</label
+                        >
+
+                        <input
+                            id="ex15"
+                            type="text"
+                            data-slider-ticks="[0, 10, 20, 30, 40]"
+                            data-slider-ticks-snap-bounds="30"
+                            data-slider-step="5"
+                            style="width: 100%"
+                        />
+
+                        <label class="pt-3" for="Duration">Duration</label>
+                        <input
+                            type="number"
+                            class="form-control mb-2"
+                            id="Duration"
+                            placeholder="Choose duration"
+                        />
+
+                        <center class="pt-5">
+                            <button
+                                type="button"
+                                class="btn btn-block btn-filter pt-2"
+                                onclick="closeFilter()"
+                            >
+                                Apply
+                            </button>
+                        </center>
+                        <center class="pt-3">
+                            <button
+                                type="button"
+                                class="btn btn-block btn-filter pt-2"
+                            >
+                                Clear All
+                            </button>
+                        </center>
+                        <hr />
+                        <center><p style="font-size: 14px">or</p></center>
+                        <center><p>Search by Company</p></center>
+                        <div class="input-group mb-3 pb-4">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="eg: Google,Chennai, etc.,"
+                                aria-describedby="basic-addon1"
+                                style="font-size: 14px"
+                            />
+                            <div class="input-group-prepend">
+                                <button
+                                    type="button"
+                                    class="btn btn-block-primary py-0"
+                                    style="
+                                        background-color: #0e387a;
+                                        color: #fff;
+                                    "
+                                >
+                                    <i
+                                        class="bx bx-search-alt-2 bx-rotate-90"
+                                        style="font-size: 20px"
+                                    ></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <button
-                    type="button"
-                    class="bottombutton btn btn-primary btn-lg btn-block"
-                >
-                    Filter
-         </button>
+            type="button"
+            class="bottombutton btn btn-primary btn-lg btn-block"
+            id="bottom-btn"
+            onclick="showfilter()"
+        >
+            Filter
+        </button>
+        <script>
+            let bottombtn = document.getElementById("bottom-btn");
+            let filtermenu = document.getElementById("popfilterid");
+
+            function showfilter() {
+                addEventListener("click", function () {
+                    filtermenu.classList.remove("hidden");
+                });
+            }
+
+            function closeFilter() {
+                addEventListener("click", function () {
+                    filtermenu.classList.add("hidden");
+                });
+            }
+        </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.js"></script>
         <script>
@@ -529,6 +695,12 @@
                 ticks: [0, 10, 20, 30, 40],
                 ticks_labels: ["0", "10k", "20k", "30k", "40k"],
                 ticks_snap_bounds: 10,
+            });
+            var slider2 = new Slider("#ex15", {
+                min: 5000,
+                max: 50000,
+                scale: "logarithmic",
+                step: 10,
             });
         </script>
 
