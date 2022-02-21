@@ -153,6 +153,7 @@ body {
     html {
         overscroll-behavior: contain;
         margin: 0;
+        padding:0;
     }
     body {
         box-sizing: border-box !important;
@@ -216,6 +217,12 @@ body {
     .bottombutton {
         visibility: visible;
         margin-left: 0px;
+    }
+}
+
+@media (max-width: 320px) {
+    .inner-cont {
+        margin-left: -20px;
     }
 }
 
