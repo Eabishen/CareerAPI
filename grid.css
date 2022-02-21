@@ -150,6 +150,10 @@ body {
 }
 
 @media (max-width: 768px) {
+     html {
+        overscroll-behavior: contain;
+        overflow-x: hidden !important;
+    }
     .main-row {
         overscroll-behavior: contain;
         overflow-x: hidden;
