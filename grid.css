@@ -2,12 +2,12 @@ body {
     font-family: Poppins, sans-serif;
     margin: 0;
     overscroll-behavior: contain;
-    /* position: relative; */
+
     overflow-x: hidden !important;
 }
 
 .filtermain {
-    position: relative;
+/*     position: relative; */
     /* overflow-x: hidden !important; */
 }
 
@@ -145,6 +145,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    body{
+        position: relative;
+    }
     .main-row {
         overscroll-behavior: contain;
         overflow-x: hidden;
