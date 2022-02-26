@@ -116,7 +116,6 @@ body {
     visibility: hidden;
     /* width: 120vw; */
     z-index: 100 !important;
-    overflow-x:hidden;
 }
 
 .card {
