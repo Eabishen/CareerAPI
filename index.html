@@ -27,10 +27,7 @@
 
         <title>Career API</title>
         <style>
-            *{
-                box-sizing: border-box;
-                overflow-x: hidden;
-            }
+            
             .toggle.ios,
             .toggle-on.ios,
             .toggle-off.ios {
@@ -523,16 +520,16 @@
             <!-- popup -->
             
         </div>
-        <div id="bottom-btn">
+
             <button
                 type="button"
                 class="bottombutton btn btn-dark btn-lg btn-block"
-               
+                id="bottom-btn"
                 onclick="showfilter()"
             >
                 Filter
             </button>
-        </div>
+
         <script>
             let bottombtn = document.getElementById("bottom-btn");
             let filtermenu = document.getElementById("popfilterid");
